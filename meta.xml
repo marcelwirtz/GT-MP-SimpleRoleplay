@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+
+MIT License
+
+Copyright (c) 2018 MrNeta (https://github.com/MrNeta/GT-MP-SimpleRoleplay/)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-->
+
+
+<meta>
+	<info name="SimpleRoleplay" author="Neta(https://github.com/MrNeta)" type="gamemode" async="true" />
+
+	<!-- Serverside Scripts-->
+	<script src="SimpleRoleplay.dll" type="server" lang="compiled" />
+	
+	<!-- Clientside Scripts -->
+	<script src="Client/Login/Login.js" type="client" lang="javascript" />
+	<script src="Client/Register/Register.js" type="client" lang="javascript" />
+	<script src="Client/CharacterCreator/CharacterCreator.js" type="client" lang="javascript" />
+	<script src="Client/CharacterSelection/CharacterSelection.js" type="client" lang="javascript" />
+	<script src="Client/Dev/ClothingCreator.js" type="client" lang="javascript" />
+	<script src="Client/ATMMenu/ATMMenu.js" type="client" lang="javascript" />
+	<script src="Client/KeyHandler/KeyHandler.js" type="client" lang="javascript" />
+	<script src="Client/HUD/Money.js" type="client" lang="javascript" />
+	<script src="Client/HUD/PlayerStatus.js" type="client" lang="javascript" />
+	<script src="Client/HUD/ProgressBar.js" type="client" lang="javascript" />
+	<script src="Client/HUD/CommonElements.js" type="client" lang="javascript" />
+	<script src="Client/Sync/Character.js" type="client" lang="javascript" />
+	<script src="Client/Spawn/Spawn.js" type="client" lang="javascript" />
+	<script src="Client/PlayerMenu/PlayerMenu.js" type="client" lang="javascript" />
+	<script src="Client/Shop/Shop.js" type="client" lang="javascript" />
+	<script src="Client/GarageMenu/GarageMenu.js" type="client" lang="javascript" />
+	<script src="Client/GasStation/GasStationMenu.js" type="client" lang="javascript" />
+	<script src="Client/GasStation/RefuelProgressbar.js" type="client" lang="javascript" />
+	<script src="Client/World/Weather.js" type="client" lang="javascript" />
+	<script src="Client/VehicleShop/VehicleShop.js" type="client" lang="javascript" />
+	<script src="Client/VehicleMenu/VehicleMenu.js" type="client" lang="javascript" />
+	<script src="Client/ClothingShop/ClothingShop.js" type="client" lang="javascript" />
+	<script src="Client/Factions/Police/Criminal.js" type="client" lang="javascript" />
+	<script src="Client/Factions/Police/CopWeaponMenu.js" type="client" lang="javascript" />
+	<script src="Client/Factions/EMS/DeathEMS.js" type="client" lang="javascript" />
+
+	<!-- Clientside Files -->
+	<file src="Client/MenuImages/shopui_title_24-7.jpg" />
+	<file src="Client/MenuImages/shopui_title_ltdgasoline.jpg" />
+	<file src="Client/MenuImages/shopui_title_mazebank.jpg" />
+	<file src="Client/HUD/food.png" />
+	<file src="Client/HUD/drink.png" />
+	<file src="Client/HUD/fluid.png" />
+	<file src="Client/HUD/wrench.png" />
+		
+	<settings>
+		<!-- General Settings -->
+		<setting name="server_name" value="" default="Simple Roleplay" description="" />
+		<setting name="gamemode_name" value="" default="SRP Alpha" description="" />
+		<setting name="whitelist_enabled" value="" default="false" description="Enable or Disable Whitelist Function" />
+		<!-- MySQL Database Settings -->
+		<setting name="mysql_server" value="" default="localhost" description="IP / Domain of the MySQL Database Server" />
+		<setting name="mysql_user" value="" default="" description="MySQL Username" />
+		<setting name="mysql_password" value="" default="" description="MySQL User Password" />
+		<setting name="mysql_database" value="" default="" description="MySQL Database Name" />
+	</settings> 
+	
+	<assembly ref="System.Data.dll" />
+	<assembly ref="System.Xml.dll" />
+	<assembly ref="MySql.Data.dll" />
+	<assembly ref="Newtonsoft.Json.dll" />
+</meta>
+

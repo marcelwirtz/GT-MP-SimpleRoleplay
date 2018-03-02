@@ -1,0 +1,12 @@
+﻿{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "noImplicitAny": false,
+    "noEmitOnError": false,
+    "removeComments": true,
+    "sourceMap": false,
+    "target": "es6",
+    "module": "commonjs"
+  },
+  "compileOnSave": true
+}

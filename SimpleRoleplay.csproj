@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6294160-D1F5-40AD-8A3F-95C0D122C1FE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SimpleRoleplay</RootNamespace>
+    <AssemblyName>SimpleRoleplay</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
+      <HintPath>packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="GrandTheftMultiplayer.Server, Version=0.1.640.64, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\grandtheftmultiplayer.api.0.1.640.64\lib\net452\GrandTheftMultiplayer.Server.exe</HintPath>
+    </Reference>
+    <Reference Include="GrandTheftMultiplayer.Shared, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\grandtheftmultiplayer.api.0.1.640.64\lib\net452\GrandTheftMultiplayer.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.10.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.6.10.4\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\AdminHandler.cs" />
+    <Compile Include="Server\Base\Enums.cs" />
+    <Compile Include="Server\Base\Settings.cs" />
+    <Compile Include="Server\CharacterHandler.cs" />
+    <Compile Include="Server\ClothingShopHandler.cs" />
+    <Compile Include="Server\ConnectionHandler.cs" />
+    <Compile Include="Server\DatabaseHandler.cs" />
+    <Compile Include="Server\FactionHandler\EMSHandler.cs" />
+    <Compile Include="Server\FactionHandler\PoliceHandler.cs" />
+    <Compile Include="Server\GarageHandler.cs" />
+    <Compile Include="Server\GasStationHandler.cs" />
+    <Compile Include="Server\Model\Account.cs" />
+    <Compile Include="Server\Model\ATM.cs" />
+    <Compile Include="Server\Model\BoughtClothing.cs" />
+    <Compile Include="Server\Model\Character.cs" />
+    <Compile Include="Server\Model\CharacterSelectionItem.cs" />
+    <Compile Include="Server\Model\Clothing.cs" />
+    <Compile Include="Server\Model\ClothingShopJson.cs" />
+    <Compile Include="Server\Model\ClothingShop.cs" />
+    <Compile Include="Server\Model\Dispatch.cs" />
+    <Compile Include="Server\Model\DoorInfo.cs" />
+    <Compile Include="Server\Model\FuelPrices.cs" />
+    <Compile Include="Server\Model\FuelStorage.cs" />
+    <Compile Include="Server\Model\Garage.cs" />
+    <Compile Include="Server\Model\GarageMenuItem.cs" />
+    <Compile Include="Server\Model\GarageSpawn.cs" />
+    <Compile Include="Server\Model\GasStation.cs" />
+    <Compile Include="Server\Model\GasStationMenuItem.cs" />
+    <Compile Include="Server\Model\InventoryItem.cs" />
+    <Compile Include="Server\Model\InventoryMenuItem.cs" />
+    <Compile Include="Server\Model\Item.cs" />
+    <Compile Include="Server\Model\MenuItem.cs" />
+    <Compile Include="Server\Model\Outfit.cs" />
+    <Compile Include="Server\Model\OwnedVehicle.cs" />
+    <Compile Include="Server\Model\Player.cs" />
+    <Compile Include="Server\Model\PlayerWeapon.cs" />
+    <Compile Include="Server\Model\Shop.cs" />
+    <Compile Include="Server\Model\ShopItem.cs" />
+    <Compile Include="Server\Model\ShopMenuItem.cs" />
+    <Compile Include="Server\Model\SpawnPosition.cs" />
+    <Compile Include="Server\Model\VehicleInfo.cs" />
+    <Compile Include="Server\Model\VehicleShop.cs" />
+    <Compile Include="Server\Model\VehicleShopMenuItem.cs" />
+    <Compile Include="Server\MoneyHandler.cs" />
+    <Compile Include="Server\Services\AccountService\AccountService.cs" />
+    <Compile Include="Server\Services\AccountService\WhiteListService.cs" />
+    <Compile Include="Server\Services\AdminService\AdminService.cs" />
+    <Compile Include="Server\Services\BlipService\BlipService.cs" />
+    <Compile Include="Server\Services\CharacterService\CharacterEnums.cs" />
+    <Compile Include="Server\Services\CharacterService\CharacterService.cs" />
+    <Compile Include="Server\Services\CharacterService\PlayerMenuService.cs" />
+    <Compile Include="Server\Services\ClothingService\ClothingEnums.cs" />
+    <Compile Include="Server\Services\ClothingService\ClothingService.cs" />
+    <Compile Include="Server\Services\ClothingService\ClothingShopService.cs" />
+    <Compile Include="Server\Services\DoorService\DoorService.cs" />
+    <Compile Include="Server\Services\FactionService\CLient.cs" />
+    <Compile Include="Server\Services\FactionService\EMSService.cs" />
+    <Compile Include="Server\Services\FactionService\FactionEnums.cs" />
+    <Compile Include="Server\Services\FactionService\FactionService.cs" />
+    <Compile Include="Server\Services\FactionService\PoliceService.cs" />
+    <Compile Include="Server\Services\InterfaceService\ProgressBarService.cs" />
+    <Compile Include="Server\Services\InterfaceService\ScreenService.cs" />
+    <Compile Include="Server\Services\ItemService\ItemEnums.cs" />
+    <Compile Include="Server\Services\ItemService\ItemService.cs" />
+    <Compile Include="Server\Services\MoneyService\ATMService.cs" />
+    <Compile Include="Server\Services\MoneyService\MoneyService.cs" />
+    <Compile Include="Server\Services\ShopService\ShopEnums.cs" />
+    <Compile Include="Server\Services\ShopService\ShopService.cs" />
+    <Compile Include="Server\Services\VehicleService\GarageService.cs" />
+    <Compile Include="Server\Services\VehicleService\GasStationService.cs" />
+    <Compile Include="Server\Services\VehicleService\VehicleEnums.cs" />
+    <Compile Include="Server\Services\VehicleService\VehicleService.cs" />
+    <Compile Include="Server\Services\VehicleService\VehicleShopService.cs" />
+    <Compile Include="Server\Services\WorldService\TimeService.cs" />
+    <Compile Include="Server\Services\WorldService\WeatherService.cs" />
+    <Compile Include="Server\SessionHandler.cs" />
+    <Compile Include="Server\ShopHandler.cs" />
+    <Compile Include="Server\SpawnHandler.cs" />
+    <Compile Include="Server\VehicleHandler.cs" />
+    <Compile Include="Server\VehicleShopHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Client\ATMMenu\ATMMenu.ts" />
+    <TypeScriptCompile Include="Client\CharacterCreator\CharacterCreator.ts" />
+    <TypeScriptCompile Include="Client\CharacterSelection\CharacterSelection.ts" />
+    <TypeScriptCompile Include="Client\ClothingShop\ClothingShop.ts" />
+    <TypeScriptCompile Include="Client\Dev\OutfitCreator.ts" />
+    <TypeScriptCompile Include="Client\Dev\ClothingCreator.ts" />
+    <TypeScriptCompile Include="Client\Factions\EMS\DeathEMS.ts" />
+    <TypeScriptCompile Include="Client\Factions\Police\CopWeaponMenu.ts" />
+    <TypeScriptCompile Include="Client\Factions\Police\Criminal.ts" />
+    <TypeScriptCompile Include="Client\GarageMenu\GarageMenu.ts" />
+    <TypeScriptCompile Include="Client\GasStation\GasStationMenu.ts" />
+    <TypeScriptCompile Include="Client\GasStation\RefuelProgressbar.ts" />
+    <TypeScriptCompile Include="Client\HUD\CommonElements.ts" />
+    <TypeScriptCompile Include="Client\HUD\Money.ts" />
+    <TypeScriptCompile Include="Client\HUD\PlayerStatus.ts" />
+    <TypeScriptCompile Include="Client\HUD\Progressbar.ts" />
+    <TypeScriptCompile Include="Client\KeyHandler\KeyHandler.ts" />
+    <TypeScriptCompile Include="Client\Login\Login.ts" />
+    <TypeScriptCompile Include="Client\PlayerMenu\PlayerMenu.ts" />
+    <TypeScriptCompile Include="Client\Register\Register.ts" />
+    <TypeScriptCompile Include="Client\Shop\Shop.ts" />
+    <TypeScriptCompile Include="Client\Spawn\Spawn.ts" />
+    <TypeScriptCompile Include="Client\Sync\Character.ts" />
+    <TypeScriptCompile Include="Client\VehicleMenu\VehicleMenu.ts" />
+    <TypeScriptCompile Include="Client\VehicleShop\VehicleShop.ts" />
+    <TypeScriptCompile Include="Client\World\Weather.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Declarations.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\Declarations.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.Contracts.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.GUI.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.Javascript.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.Javascript.ScriptContext.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.Models.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.Sound.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Client.Sync.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Shared.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GrandTheftMultiplayer.Shared.Math.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GTA.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GTA.Math.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GTA.Native.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GTA.NaturalMotion.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\GTA.UI.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\index.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\Microsoft.ClearScript.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\NativeUI.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\NativeUI.UIMenu.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\NativeUI.UIMenuDynamicListItem.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\NativeUI.UIMenuItem.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\NativeUI.UIResText.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\System.Collections.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\System.Collections.Generic.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\System.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\System.Drawing.d.ts" />
+    <TypeScriptCompile Include="types-gt-mp\Definitions\System.Windows.Forms.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="README.md" />
+    <None Include="tsconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="docs\MySqlCommand.xml" />
+    <Content Include="docs\MySqlCommandBuilder.xml" />
+    <Content Include="docs\MySqlConnection.xml" />
+    <Content Include="docs\MySqlConnectionStringBuilder.xml" />
+    <Content Include="docs\MySqlDataAdapter.xml" />
+    <Content Include="docs\MySqlDataReader.xml" />
+    <Content Include="docs\MySqlException.xml" />
+    <Content Include="docs\MySqlHelper.xml" />
+    <Content Include="docs\MySqlParameter.xml" />
+    <Content Include="docs\MySqlParameterCollection.xml" />
+    <Content Include="docs\MySqlTransaction.xml" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="meta.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,4 @@
+﻿namespace SimpleRoleplay.Server.Base
+{
+	
+}
