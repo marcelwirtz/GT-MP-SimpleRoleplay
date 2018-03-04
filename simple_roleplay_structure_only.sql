@@ -307,6 +307,7 @@ CREATE TABLE IF NOT EXISTS `ownedvehicles` (
   `NumberPlate` varchar(20) NOT NULL,
   `PrimaryColor` int(11) DEFAULT '0',
   `SecondaryColor` int(11) NOT NULL DEFAULT '0',
+  `Livery` int(11) NOT NULL DEFAULT '0',
   `InUse` int(11) NOT NULL DEFAULT '0',
   `Inventory` varchar(20000) DEFAULT '[]'
 ) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
