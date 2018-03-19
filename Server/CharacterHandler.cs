@@ -7,6 +7,8 @@ using SimpleRoleplay.Server.Services.CharacterService;
 using SimpleRoleplay.Server.Services.ItemService;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Timers;
 
 namespace SimpleRoleplay.Server
 {
@@ -16,9 +18,57 @@ namespace SimpleRoleplay.Server
 		public CharacterHandler()
 		{
 			API.onClientEventTrigger += OnClientEvent;
-		}
+            API.onResourceStart += OnResourceStartHandler;
+        }
 
-		public void OnClientEvent(Client client, string eventName, params object[] arguments) //arguments param can contain multiple params
+        Timer CharacterTimer;
+        public void OnResourceStartHandler()
+        {
+            Task.Run(() => {
+                CharacterTimer = API.startTimer(60000, false, () =>
+                {
+                    API.getAllPlayers().ForEach(client => {
+                        if (client.hasData("player"))
+                        {
+                            Player player = client.getData("player");
+                            if (player.Character != null)
+                            {
+                                player.Character.Position = client.position;
+                                player.Character.Rotation = client.rotation;
+                                CharacterService.UpdatePlayerWeapons(player.Character);
+
+                                if (!player.Character.IsDeath)
+                                {
+                                    player.Character.Hunger -= 2;
+                                    player.Character.Thirst -= 3;
+
+                                    if (player.Character.Thirst <= 20)
+                                    {
+                                        API.sendNotificationToPlayer(client, "~o~Information~n~~w~You have not had a ~b~drink ~w~for a while..");
+                                        API.playSoundFrontEnd(client, "Click_Fail", "WEB_NAVIGATION_SOUNDS_PHONE");
+                                    }
+
+                                    if (player.Character.Hunger <= 15)
+                                    {
+                                        API.sendNotificationToPlayer(client, "~o~Information~n~~wYou have not ~b~eaten ~w~for a while..");
+                                        API.playSoundFrontEnd(client, "Click_Fail", "WEB_NAVIGATION_SOUNDS_PHONE");
+                                    }
+
+                                    if (player.Character.Hunger <= 0 || player.Character.Thirst <= 0)
+                                    {
+                                        client.health -= 10;
+                                    }
+                                    CharacterService.UpdateHUD(client);
+                                }
+                            }
+                        }
+                    });
+                });
+            });
+        }
+
+
+        public void OnClientEvent(Client client, string eventName, params object[] arguments) //arguments param can contain multiple params
 		{
 			Player player = null;
 
