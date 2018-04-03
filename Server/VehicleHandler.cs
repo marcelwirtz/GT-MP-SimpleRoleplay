@@ -34,8 +34,8 @@ namespace SimpleRoleplay.Server
 						if (ownedVehicle.Fuel > 100)
 							ownedVehicle.Fuel = 100; // Max Fuel 100
 						ownedVehicle.ActiveHandle.setSyncedData("fuel", ownedVehicle.Fuel);
-						if (ownedVehicle.Fuel == 0)
-							//ownedVehicle.ActiveHandle.fuelLevel = 0;
+                        if (ownedVehicle.Fuel <= 0)
+                            ownedVehicle.ActiveHandle.engineStatus = false;
 						VehicleService.UpdateVehicle(ownedVehicle);
 					}
 				});
@@ -99,7 +99,10 @@ namespace SimpleRoleplay.Server
 						}
 						else
 						{
-							if(ownedVehicle.Fuel <= 0) { return; }
+							if(ownedVehicle.Fuel <= 0 || ownedVehicle.Fuel <= 0 && ownedVehicle.ActiveHandle.engineStatus) {
+                                ownedVehicle.ActiveHandle.engineStatus = false;
+                                return;
+                            }
 							if(ownedVehicle.ActiveHandle.engineHealth <= 0) { return; }
 							client.vehicle.engineStatus = true;
 							API.shared.sendNotificationToPlayer(client, "Vehicle engine switched ~g~on");

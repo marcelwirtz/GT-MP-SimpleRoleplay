@@ -332,6 +332,11 @@ namespace SimpleRoleplay.Server.Services.VehicleService
 					}
 					else
 					{
+                        if(ownedVehicle.Fuel <= 0)
+                        {
+                            ownedVehicle.ActiveHandle.engineStatus = false;
+                            return;
+                        }
 						client.vehicle.engineStatus = true;
 						API.shared.sendNotificationToPlayer(client, "Vehicle engine switched ~g~on");
 					}
